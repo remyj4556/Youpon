@@ -14,11 +14,11 @@ django.setup()
 from coupons.models import Coupon
 
 c = Coupon(
-    store='Best Buy',
-    item='Eggs',
-    discount=1.5,
-    discount_type='dollar',
-    expiration_date=date(2025, 7, 1)
+    store='Meijer',
+    item='Cheese',
+    discount='0.25',
+    discount_type='percent',
+    expiration_date=date(2025, 7, 5)
 )
 c.save()
 

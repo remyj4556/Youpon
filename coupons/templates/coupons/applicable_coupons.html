@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coupon List</title>
+    <link rel="stylesheet" href="{% static 'coupons/styles.css' %}">
+</head>
+<body>
+    <h1>Applicable Coupons</h1>
+
+    {% if object_list %}
+        {% for coupon in object_list %}
+            <div class="coupon">
+                <strong>{{ coupon.store }}</strong><br>
+                Item: {{ coupon.item }}<br>
+                Discount: {{ coupon.discount }} {{ coupon.discount_type }}<br>
+                Expires: {{ coupon.expiration_date }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No coupons found.</p>
+    {% endif %}
+</body>
+</html>
