@@ -1,0 +1,67 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+My Lists
+{% endblock  %}
+
+
+{% block content %}
+    <div class="container-fluid p-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- top column object -->
+                <div class="mb-3">
+                    <div id="mylists" class="card">
+
+                        <!-- My List card title -->
+                        <div class="card-header">
+                            My Lists
+                        </div>
+                        
+                        <!-- My lists display (scrolling list format) -->
+                        <div class="card-body">
+                            <div class="list-group">
+                                {% if user.list.all.count == 0 %}
+                                    Add your first list below!
+                                {% endif %}
+
+                                {% for list in user.list.all %}
+                                    <div class="d-flex justify-content-between list-group-item border-0 pl-0 pr-2">
+
+                                        <!-- list item (acts as button) -->
+                                        <a href="/{{list.id}}" class="list-group-item list-group-item-action flex-grow-1 border-o rounded-1 py-1 px-3">
+                                            {{list.name}}
+                                        </a>
+
+                                        <!-- delete button -->
+                                        <form method="post" action="#" class="ms-2">
+                                            {% csrf_token %} 
+                                            <button type="submit" name="delete_{{list.id}}" value="pressed" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"> - </button>
+                                        </form>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- bottom column object -->
+                <div class="mb-3">
+
+                    <!-- new list field containing form to create new List object -->
+                    <form method="post" action="/mylists/" class="form-inline"> 
+                        {% csrf_token %}
+                        <div class="input-group-prepend flex-grow-1 text-start">
+                            {{form.name}}
+                            <button type="submit" name="save" class="btn btn-success"> + </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

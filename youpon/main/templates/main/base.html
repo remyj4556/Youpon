@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                background: #2A7B9B;
+                background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+            }
+
+            .header {
+                font-family: sans-serif;
+                position: fixed;
+                right: 0;
+                top: 100px;
+            }
+
+            .list-group{
+                max-height: 250px;
+                margin-bottom: 10px;
+                overflow-y:scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .list-item {
+                max-width: 115px;
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                white-space: nowrap;
+            }
+
+        </style>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>{% block title %} My Site {% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/home">Youpon</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <a class="nav-item nav-link {% if '/home' in request.path %}active{% endif %}" href="/home">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link {% if '/mylists' in request.path %}active{% endif %}" href="/mylists">My Lists</a>
+                    {% else %}
+                        <a class="nav-item nav-link {% if '/register' in request.path %}active{% endif %}" href="/register">Register Account</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-success">
+                    {% if request.user.is_authenticated %}
+                        Logout
+                    {% else %}
+                        Login
+                    {% endif %}
+                </button>
+            </form>
+        </nav>
+
+        <div id="content" name="content" class="main">
+            {% block content %}
+            {% endblock %} 
+        </div> 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+</html>
