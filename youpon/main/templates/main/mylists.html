@@ -51,11 +51,11 @@ My Lists
                 <div class="mb-3">
 
                     <!-- new list field containing form to create new List object -->
-                    <form method="post" action="/mylists/" class="form-inline"> 
+                    <form method="post" action="#"> 
                         {% csrf_token %}
-                        <div class="input-group-prepend flex-grow-1 text-start">
+                        <div class="input-group mb-3">
                             {{form.name}}
-                            <button type="submit" name="save" class="btn btn-success"> + </button>
+                            <button type="submit" name="save" class="btn btn-success">+</button>
                         </div>
                     </form>
 

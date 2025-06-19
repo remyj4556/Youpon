@@ -29,7 +29,8 @@
                                             <div class="d-flex justify-content-between list-group-item border-0 py-1 px-0">
 
                                                 <!-- Check buttons -->
-                                                <input type="checkbox" name="c{{item.id}}" value="clicked" {% if item.complete %} checked {% endif %}>
+                                                <input type="checkbox" class="btn-check" id="id_{{item.id}}" autocomplete="off" name="c{{item.id}}" value="clicked" {% if item.complete %} checked {% endif %}>
+                                                <label class="btn btn-outline-primary" for="id_{{item.id}}"> </label>
 
                                                 <!-- item name -->
                                                 <input type="text" class="form-control" value="{{item.text}}">
