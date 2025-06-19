@@ -9,11 +9,32 @@
 
 {% load crispy_forms_tags %}
 
-{% block content %} 
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Register</button>
-    </form>
+{% block content %}    
+    <div class="container-fluid p-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- column object -->
+                <div class="mb-3">
+                    <div id="mylists" class="card">
+
+                        <!-- card title -->
+                        <div class="card-header">
+                            Login
+                        </div>
+                        
+                        <!-- login form -->
+                        <div class="card-body">
+                            <form method="POST" class="form-group">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button type="submit" class="btn btn-success">Register</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

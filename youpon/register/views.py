@@ -8,7 +8,7 @@ def register(request):
         if form.is_valid():
             form.save()
             
-        return redirect("/home")
+        return redirect("../accounts/login/")
     else:
         form = RegisterForm()
         

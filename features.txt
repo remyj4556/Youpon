@@ -1,0 +1,21 @@
+IMPROVEMENTS: -------------------------------------------------------------------------------------
+
+Update login/registration visuals
+
+registration takes you to login page (or perhaps automatically logs you in) rather than home page
+
+improve home page with images and more information
+
+---------------------------------------------------------------------------------------------------
+
+
+FEATURES: -----------------------------------------------------------------------------------------
+
+Automatically uploads coupons to database periodically to update selection
+
+Takes users shopping list (parsed with an ML model to naturalize) and recommends coupons based on 
+preferences and store availability
+
+Perhaps offers a map/route view of the quicket method to complete list
+
+---------------------------------------------------------------------------------------------------
