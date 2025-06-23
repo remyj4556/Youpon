@@ -66,3 +66,9 @@ def mylists(request):
     
     return render(request, "main/mylists.html", {"form": form})
 
+
+def applicable(request, list_id):
+    ls = List.objects.get(id=list_id)
+
+    if ls in request.user.list.all():
+        return render(request, "main/applicable.html", {"ls": ls})
