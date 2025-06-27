@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <style type="text/css">
@@ -39,7 +40,9 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-            <a class="navbar-brand" href="/home">Youpon</a>
+            <a class="navbar-brand" href="/home">
+                <img src="{% static 'images/youpon_full.png' %}" alt="Youpon Logo" width="128" height="30">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

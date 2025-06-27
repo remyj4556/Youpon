@@ -6,8 +6,38 @@ Home
 
 {% block content %}
 <div class="container-fluid p-3">
-    <div class="col-12 col-md-6 col-lg-4">
-        Welcome to Youpon!
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <!-- main home page object -->
+            <div class="mb-3">
+                <div id="mylists" class="card">  
+
+                    <!-- My List card title -->
+                    <div class="card-header">
+                        Welcome to Youpon!
+                    </div>
+
+                    <!-- My lists display (scrolling list format) -->
+                    <div class="card-body">
+                        <p>Youpon is your intelligent couponing assistant. We utilize a complex algorithm to save as much of your money as possible.</p>
+                        <p>To get started, simply add a shopping list and get all the relevant coupons in seconds!</p>
+                        <p>We handle the hard work for you, providing you with a comprehensive plan of where to go, what to buy, and how to save.</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- bottom column object -->
+            <div class="mb-3">
+                <!-- button to unique page of applicable coupons -->
+                <div class="d-grid my-3 mx-auto">
+                    <a href="/mylists/" class="btn btn-primary">Get started here!</a>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 {% endblock content %} 

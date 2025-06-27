@@ -6,5 +6,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("home/", views.home, name="home"),
     path("mylists/", views.mylists, name="mylists"),
-    path("applicable_<int:list_id>/", views.applicable, name="applicable"),
+    path("applicable_<int:page_id>/", views.applicable, name="applicable"),
 ]
